@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Priyanshu Singh - CyberDev Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Fira+Code:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lucide@0.378.0/dist/umd/lucide.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #0f172a;
+        color: #f9fafb;
+        overflow-x: hidden;
+        font-size: 16px;
+      }
+      .accent-color {
+        color: #8b5cf6;
+      }
+      .accent-bg {
+        background-color: #8b5cf6;
+      }
+      .accent-border {
+        border-color: #8b5cf6;
+      }
+      .secondary-text {
+        color: #94a3b8;
+      }
+
+      .glassmorphism {
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(51, 65, 85, 0.5);
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 2.5rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+        color: #f1f5f9;
+      }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 70px;
+        height: 4px;
+        background-color: #8b5cf6;
+        border-radius: 2px;
+      }
+      .text-center .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+        color: #cbd5e1;
+        font-weight: 500;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #8b5cf6;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: #8b5cf6;
+      }
+
+      .skill-card,
+      .project-card,
+      .certification-card {
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .skill-card:hover,
+      .project-card:hover,
+      .certification-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(139, 92, 246, 0.2),
+          0 5px 10px rgba(139, 92, 246, 0.1);
+      }
+      .certification-card .card-content {
+        flex-grow: 1;
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+      }
+
+      .gradient-text {
+        background: linear-gradient(to right, #a78bfa, #8b5cf6, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+      .gradient-bg {
+        background-color: #8b5cf6;
+        color: #ffffff;
+        transition: opacity 0.3s ease, background-color 0.3s ease;
+      }
+      .gradient-bg:hover {
+        opacity: 0.9;
+      }
+
+      .btn-secondary-custom {
+        background-color: transparent;
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        color: #8b5cf6;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          border-color 0.3s ease;
+      }
+      .btn-secondary-custom:hover {
+        background-color: rgba(139, 92, 246, 0.05);
+        border-color: #8b5cf6;
+      }
+
+      /* Hero Section with Simple Parallax-like Effect */
+      #hero {
+        /* Replace with your desired background image */
+        background-image: linear-gradient(
+            rgba(15, 23, 42, 0.85),
+            rgba(15, 23, 42, 0.95)
+          ),
+          url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+        background-attachment: fixed; /* This creates the parallax effect */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      /* Terminal Styles  */
+      .terminal {
+        background-color: #0f172a; /* Terminal background to blend or be slightly different */
+        border-radius: 0.75rem;
+        padding: 24px;
+        font-family: "Fira Code", "JetBrains Mono", monospace;
+        font-size: 16px;
+        line-height: 1.6;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+          0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        min-height: 316px;
+        display: flex;
+        flex-direction: column;
+        animation: floatUpDown 3s ease-in-out infinite;
+      }
+      @keyframes floatUpDown {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      .terminal-header {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .terminal-button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .terminal-text {
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+      .terminal-text > div {
+        margin-bottom: 0.5rem;
+      }
+      .prompt {
+        color: #e2e8f0;
+        margin-right: 4px;
+      }
+      .command {
+        color: #e2e8f0;
+      }
+      .output {
+        color: #a855f7;
+      }
+      .skills-array {
+        color: #22c55e;
+      }
+      .cursor {
+        background-color: #a855f7;
+        width: 8px;
+        height: 16px;
+        display: inline-block;
+        animation: blink 1s infinite;
+        vertical-align: text-bottom;
+      }
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .scroll-animate {
+        opacity: 0;
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        will-change: opacity, transform;
+      }
+      .scroll-animate.is-visible {
+        opacity: 1;
+        transform: none !important;
+      }
+      .fade-up {
+        transform: translateY(40px);
+      }
+      .fade-down {
+        transform: translateY(-40px);
+      }
+      .fade-left {
+        transform: translateX(-40px);
+      }
+      .fade-right {
+        transform: translateX(40px);
+      }
+      .stagger-children > * {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      }
+      .stagger-children.is-visible > * {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .stagger-children.is-visible > *:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .stagger-children.is-visible > *:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .stagger-children.is-visible > *:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .stagger-children.is-visible > *:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .stagger-children.is-visible > *:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .stagger-children.is-visible > *:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+      .stagger-children.is-visible > *:nth-child(7) {
+        transition-delay: 0.7s;
+      }
+      .stagger-children.is-visible > *:nth-child(8) {
+        transition-delay: 0.8s;
+      }
+      .stagger-children.is-visible > *:nth-child(9) {
+        transition-delay: 0.9s;
+      }
+      .stagger-children.is-visible > *:nth-child(10) {
+        transition-delay: 1s;
+      }
+
+      .scroll-down-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-5px);
+        }
+      }
+    </style>
+  </head>
+  <body class="antialiased leading-relaxed">
+    <header
+      id="header"
+      class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 bg-slate-900/80 backdrop-blur-md shadow-lg scroll-animate fade-down"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a
+          href="#hero"
+          class="flex items-center text-2xl font-bold text-slate-100 hover:text-purple-400 transition-colors"
+        >
+          <i data-lucide="shield-check" class="w-7 h-7 mr-2 text-purple-500"></i
+          >CyberDev
+        </a>
+        <nav class="hidden md:flex space-x-8">
+          <a href="#hero" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#certifications" class="nav-link">Certifications</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500"
+        >
+          <i
+            data-lucide="menu"
+            class="w-6 h-6 text-slate-300 hover:text-purple-400"
+          ></i>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-slate-800/95">
+        <a
+          href="#hero"
+          class="block py-3 px-6 text-slate-300 hover:bg-slate-700 hover:text-purple-400 mobile-nav-link"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="block py-3 px-6 text-slate-300 hover:bg-slate-700 hover:text-purple-400 mobile-nav-link"
+          >About</a
+        >
+        <a
+          href="#skills"
+          class="block py-3 px-6 text-slate-300 hover:bg-slate-700 hover:text-purple-400 mobile-nav-link"
+          >Skills</a
+        >
+        <a
+          href="#projects"
+          class="block py-3 px-6 text-slate-300 hover:bg-slate-700 hover:text-purple-400 mobile-nav-link"
+          >Projects</a
+        >
+        <a
+          href="#certifications"
+          class="block py-3 px-6 text-slate-300 hover:bg-slate-700 hover:text-purple-400 mobile-nav-link"
+          >Certifications</a
+        >
+        <a
+          href="#contact"
+          class="block py-3 px-6 text-slate-300 hover:bg-slate-700 hover:text-purple-400 mobile-nav-link"
+          >Contact</a
+        >
+      </div>
+    </header>
+
+    <section
+      id="hero"
+      class="min-h-screen flex items-center justify-center pt-24 pb-16 relative overflow-hidden"
+    >
+      <div class="container mx-auto px-6 relative z-10">
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+        >
+          <div
+            class="lg:col-span-7 text-center md:text-left scroll-animate fade-right"
+          >
+            <div class="mb-6 inline-block">
+              <span
+                class="px-4 py-2 rounded-full bg-purple-500/10 text-purple-500 text-sm font-medium"
+              >
+                Cybersecurity &amp; Web Development
+              </span>
+            </div>
+            <h1
+              class="text-5xl md:text-6xl lg:text-[60px] font-bold mb-6 leading-tight text-slate-100"
+              style="color: #f9fafb; font-size: 60px; margin-bottom: 24px"
+            >
+              Securing the <span class="gradient-text">Digital</span> Frontier
+            </h1>
+            <p
+              class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto md:mx-0"
+              style="color: #d1d5db; font-size: 20px; margin-bottom: 40px"
+            >
+              I build secure, elegant web applications while protecting digital
+              assets from emerging threats. Where security meets functionality.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+              <a
+                href="#projects"
+                class="gradient-bg hover:opacity-90 text-white font-medium px-8 py-4 rounded-lg transition duration-300 shadow-lg"
+                style="font-size: 16px; padding: 16px 32px"
+              >
+                View My Work
+              </a>
+              <a
+                href="#contact"
+                class="btn-secondary-custom font-medium px-8 py-4 rounded-lg transition duration-300"
+                style="font-size: 16px; padding: 16px 32px"
+              >
+                Get In Touch
+              </a>
+            </div>
+            <div
+              class="flex justify-center md:justify-start space-x-6 mt-12 text-xl"
+              style="margin-top: 48px"
+            >
+              <a
+                href="https://github.com/TheUnderdog553"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-purple-500 transition duration-300"
+                aria-label="GitHub Profile"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/priyanshu-singh-a50a22265"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-400 hover:text-purple-500 transition duration-300"
+                aria-label="LinkedIn Profile"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="mailto:spriyanshu553@gmail.com"
+                class="text-gray-400 hover:text-purple-500 transition duration-300"
+                aria-label="Email Priyanshu"
+              >
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="scroll-animate fade-left lg:col-span-5"
+            style="transition-delay: 0.2s"
+          >
+            <div class="terminal">
+              <div class="terminal-header">
+                <div
+                  class="terminal-button"
+                  style="background-color: #ff5f56"
+                ></div>
+                <div
+                  class="terminal-button"
+                  style="background-color: #ffbd2e"
+                ></div>
+                <div
+                  class="terminal-button"
+                  style="background-color: #27c93f"
+                ></div>
+              </div>
+              <div class="terminal-text" id="terminalText">
+                <div class="mb-2">
+                  <span class="prompt">&gt;</span>
+                  <span class="command">whoami</span>
+                </div>
+                <div class="mb-2 output">
+                  Cybersecurity Enthusiast &amp; Web Developer
+                </div>
+                <div class="mb-2">
+                  <span class="prompt">&gt;</span>
+                  <span class="command">skills --list</span>
+                </div>
+                <div class="mb-2 skills-array">
+                  ['Penetration Testing', 'Secure Coding', 'Frontend',
+                  'Backend']
+                </div>
+                <div class="mb-2">
+                  <span class="prompt">&gt;</span>
+                  <span class="command">status</span>
+                </div>
+                <div class="mb-2 output">
+                  Available for projects and collaborations
+                </div>
+                <div>
+                  <span class="prompt">&gt;</span>
+                  <span id="terminal-active-process-text" class="output"></span
+                  ><span
+                    id="terminal-active-process-cursor"
+                    class="cursor"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="scroll-down-indicator hidden md:block scroll-animate fade-up"
+        style="transition-delay: 0.8s"
+      >
+        <a href="#about" aria-label="Scroll to About section">
+          <i
+            data-lucide="arrow-down-circle"
+            class="w-10 h-10 accent-color hover:text-purple-400 transition-colors"
+          ></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 md:py-32 bg-slate-900/30">
+      <div class="container mx-auto px-6">
+        <h2
+          class="section-title text-center scroll-animate fade-right"
+          style="font-size: 30px; margin-bottom: 8px"
+        >
+          About Me
+        </h2>
+        <div class="grid md:grid-cols-5 gap-10 items-center">
+          <div
+            class="md:col-span-2 scroll-animate fade-left"
+            style="transition-delay: 0.2s"
+          >
+            <img
+              src="images/photo.jpg"
+              alt="Priyanshu Singh"
+              class="rounded-lg shadow-xl mx-auto w-full max-w-[274px] h-auto object-cover border-4 border-slate-700"
+              style="aspect-ratio: 1/1"
+            />
+          </div>
+          <div
+            class="md:col-span-3 scroll-animate fade-right"
+            style="transition-delay: 0.4s"
+          >
+            <p
+              class="text-lg mb-8 text-gray-300"
+              style="font-size: 18px; margin-bottom: 32px; color: #d1d5db"
+            >
+              Hello! I'm Priyanshu Singh, a B.Tech student at SRM Institute of
+              Science and Technology (9.78/10 CGPA) with a strong passion for
+              Cybersecurity and Web Development. I am a Certified Ethical Hacker
+              (CEH) dedicated to creating robust, secure, and user-friendly
+              digital experiences.
+            </p>
+            <p class="text-lg mb-4 secondary-text">
+              My experience includes a Web Development Frontend Internship at
+              Raise Digital, where I gained practical skills in HTML, CSS, and
+              JavaScript, and collaborated on three web projects. I also
+              undertook a Cybersecurity Internship at Teachnook, focusing on
+              network traffic analysis and visualization. I enjoy tackling
+              complex problems and continuously learning new technologies to
+              deliver high-quality results.
+            </p>
+            <p class="text-lg mb-6 text-slate-200">
+              Key technologies I work with:
+            </p>
+            <ul
+              class="grid grid-cols-2 gap-x-6 gap-y-3 secondary-text stagger-children scroll-animate"
+            >
+              <li class="flex items-center">
+                <i
+                  data-lucide="arrow-right-circle"
+                  class="w-5 h-5 mr-2 accent-color"
+                ></i
+                >C & C++
+              </li>
+              <li class="flex items-center">
+                <i
+                  data-lucide="arrow-right-circle"
+                  class="w-5 h-5 mr-2 accent-color"
+                ></i
+                >Python & Django
+              </li>
+              <li class="flex items-center">
+                <i
+                  data-lucide="arrow-right-circle"
+                  class="w-5 h-5 mr-2 accent-color"
+                ></i
+                >HTML, CSS, JavaScript
+              </li>
+              <li class="flex items-center">
+                <i
+                  data-lucide="arrow-right-circle"
+                  class="w-5 h-5 mr-2 accent-color"
+                ></i
+                >Bootstrap
+              </li>
+              <li class="flex items-center">
+                <i
+                  data-lucide="arrow-right-circle"
+                  class="w-5 h-5 mr-2 accent-color"
+                ></i
+                >Vulnerability Assessment
+              </li>
+              <li class="flex items-center">
+                <i
+                  data-lucide="arrow-right-circle"
+                  class="w-5 h-5 mr-2 accent-color"
+                ></i
+                >Network Security Tools
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-20 md:py-32">
+      <div class="container mx-auto px-6">
+        <h2 class="section-title text-center scroll-animate fade-up">
+          My Skills
+        </h2>
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 stagger-children scroll-animate"
+        >
+          <div class="skill-card p-6 rounded-lg shadow-lg">
+            <div class="flex items-center mb-4">
+              <i data-lucide="code-xml" class="w-10 h-10 accent-color mr-4"></i>
+              <h3 class="text-2xl font-semibold text-slate-100">
+                Web Development
+              </h3>
+            </div>
+            <p class="secondary-text mb-4">
+              Building responsive and dynamic web applications with a focus on
+              security and user experience.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Frontend:</strong>
+                HTML, CSS, JavaScript, Bootstrap
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Backend:</strong>
+                Python (Django)
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Databases:</strong>
+                Firebase, Basic SQL
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Tools:</strong> Git,
+                VS Code, Docker (Basic), WordPress
+              </li>
+            </ul>
+          </div>
+          <div class="skill-card p-6 rounded-lg shadow-lg">
+            <div class="flex items-center mb-4">
+              <i
+                data-lucide="shield-alert"
+                class="w-10 h-10 accent-color mr-4"
+              ></i>
+              <h3 class="text-2xl font-semibold text-slate-100">
+                Cybersecurity
+              </h3>
+            </div>
+            <p class="secondary-text mb-4">
+              Proficient in identifying vulnerabilities and implementing
+              security measures.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Areas:</strong>
+                Reconnaissance, Scanning, Vulnerability Assessment, System
+                Hacking
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Tools:</strong> Nmap,
+                Wireshark, Metasploit, Burp Suite
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Concepts:</strong>
+                OWASP Top 10, Secure Coding, Network Security
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300"
+                  >Achievements:</strong
+                >
+                H7CTF Participation
+              </li>
+            </ul>
+          </div>
+          <div class="skill-card p-6 rounded-lg shadow-lg">
+            <div class="flex items-center mb-4">
+              <i
+                data-lucide="terminal-square"
+                class="w-10 h-10 accent-color mr-4"
+              ></i>
+              <h3 class="text-2xl font-semibold text-slate-100">
+                Programming & Cloud
+              </h3>
+            </div>
+            <p class="secondary-text mb-4">
+              Strong foundation in programming languages and familiarity with
+              cloud platforms.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Languages:</strong>
+                Python, C, C++, Java
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">Cloud:</strong> AWS
+                (EC2, S3 Basics), Firebase, Backblaze
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300">OS:</strong> Linux
+                (Kali, Ubuntu), Windows
+              </li>
+              <li class="secondary-text">
+                <strong class="font-medium text-slate-300"
+                  >Achievements:</strong
+                >
+                National Level Seminar Winner (Blockchain & IoT)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 md:py-32 bg-slate-900/30">
+      <div class="container mx-auto px-6">
+        <h2
+          class="section-title text-center md:text-left scroll-animate fade-right"
+        >
+          Featured Projects
+        </h2>
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 stagger-children scroll-animate"
+        >
+          <div class="project-card rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="https://placehold.co/600x400/1E293B/8B5CF6?text=IndiaRide"
+              alt="IndiaRide Project"
+              class="w-full h-52 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 secondary-text">
+                IndiaRide (Full Stack)
+              </h3>
+              <p class="secondary-text text-sm mb-4 h-20 overflow-y-auto">
+                Secure decentralized ride-sharing app for India with real-time
+                tracking, Razorpay, Python, Django, Firebase, AWS Backblaze, AI
+                pricing.
+              </p>
+              <div class="mb-4 space-x-1 space-y-1">
+                <span class="tech-tag">Python</span
+                ><span class="tech-tag">Django</span
+                ><span class="tech-tag">Firebase</span
+                ><span class="tech-tag">AWS</span
+                ><span class="tech-tag">AI</span>
+              </div>
+              <div
+                class="flex space-x-3 mt-auto pt-2 border-t border-slate-700"
+              >
+                <a
+                  href="https://github.com/TheUnderdog553/IndiaRide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-purple-400 hover:text-purple-300 flex items-center text-sm"
+                  ><i data-lucide="github" class="w-4 h-4 mr-1"></i> View
+                  Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="project-card rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="https://placehold.co/600x400/1E293B/94A3B8?text=AI+Info+Scanner"
+              alt="Sensitive Info Scanner"
+              class="w-full h-52 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 secondary-text">
+                Sensitive Info Scanner (AI)
+              </h3>
+              <p class="secondary-text text-sm mb-4 h-20 overflow-y-auto">
+                Python tool (PySide6 UI) using regex & Gemini AI to find
+                sensitive data in files. Automated reports, encryption, password
+                vault, real-time/scheduled scans.
+              </p>
+              <div class="mb-4 space-x-1 space-y-1">
+                <span class="tech-tag">Python</span
+                ><span class="tech-tag">PySide6</span
+                ><span class="tech-tag">AI</span
+                ><span class="tech-tag">Data Security</span>
+              </div>
+              <div
+                class="flex space-x-3 mt-auto pt-2 border-t border-slate-700"
+              >
+                <a
+                  href="https://github.com/TheUnderdog553/sensitive_info_scanner-with-AI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-purple-400 hover:text-purple-300 flex items-center text-sm"
+                  ><i data-lucide="github" class="w-4 h-4 mr-1"></i> View
+                  Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="project-card rounded-lg shadow-xl overflow-hidden">
+            <img
+              src="https://placehold.co/600x400/1E293B/A78BFA?text=HealthDiary"
+              alt="HealthDiary Project"
+              class="w-full h-52 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 secondary-text">
+                HealthDiary Platform
+              </h3>
+              <p class="secondary-text text-sm mb-4 h-20 overflow-y-auto">
+                Healthcare platform for medical records, health tracking,
+                appointments. Live consults, dashboards, doctor search,
+                Razorpay, chatbot, Backblaze uploads.
+              </p>
+              <div class="mb-4 space-x-1 space-y-1">
+                <span class="tech-tag">Django</span
+                ><span class="tech-tag">HTML/CSS/JS</span
+                ><span class="tech-tag">Firebase</span
+                ><span class="tech-tag">Backblaze</span>
+              </div>
+              <div
+                class="flex space-x-3 mt-auto pt-2 border-t border-slate-700"
+              >
+                <a
+                  href="https://github.com/TheUnderdog553/HealthDiary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-purple-400 hover:text-purple-300 flex items-center text-sm"
+                  ><i data-lucide="github" class="w-4 h-4 mr-1"></i> View
+                  Code</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      .tech-tag {
+        display: inline-block;
+        background-color: #334155;
+        color: #cbd5e1;
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-right: 0.25rem;
+        margin-bottom: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+      }
+    </style>
+
+    <section id="certifications" class="py-20 md:py-32">
+      <div class="container mx-auto px-6">
+        <h2 class="section-title text-center scroll-animate fade-up">
+          Certifications & Achievements
+        </h2>
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 stagger-children scroll-animate"
+        >
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i data-lucide="award" class="w-10 h-10 accent-color mr-4"></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  Certified Ethical Hacker (CEH)
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Issuing Body:</strong> EC-Council
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">ID:</strong> ECC8321456970
+              </p>
+              <p class="secondary-text text-sm">
+                Validates expertise in ethical hacking methodologies,
+                penetration testing, and network security.
+              </p>
+            </div>
+          </div>
+
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i
+                  data-lucide="shield-check"
+                  class="w-10 h-10 accent-color mr-4"
+                ></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  Automate Cybersecurity Tasks with Python
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Issuing Body:</strong> Google
+                (via Coursera)
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">Date:</strong> March 2024
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                Covers Python scripting for cybersecurity automation, including
+                OS interaction, log analysis, and security tool integration.
+              </p>
+              <a
+                href="https://coursera.org/verify/UFR4D9FEXWLR"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-purple-400 hover:text-purple-300 underline text-sm flex items-center mt-auto pt-2"
+              >
+                <i data-lucide="link-2" class="w-4 h-4 mr-1"></i>Verify
+                Certificate
+              </a>
+            </div>
+          </div>
+
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i data-lucide="shield" class="w-10 h-10 accent-color mr-4"></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  Foundations of Cybersecurity
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Issuing Body:</strong> Google
+                (via Coursera)
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">Date:</strong> February 2024
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                Introduces core concepts of cybersecurity, including security
+                principles, common threats, and protective measures.
+              </p>
+              <a
+                href="https://coursera.org/verify/YA4NSLBVPUYZ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-purple-400 hover:text-purple-300 underline text-sm flex items-center mt-auto pt-2"
+              >
+                <i data-lucide="link-2" class="w-4 h-4 mr-1"></i>Verify
+                Certificate
+              </a>
+            </div>
+          </div>
+
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i
+                  data-lucide="brain-circuit"
+                  class="w-10 h-10 accent-color mr-4"
+                ></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  AWS Academy Machine Learning Foundations
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Issuing Body:</strong> AWS
+                Academy
+              </p>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Duration:</strong> 20 Hours
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">Date:</strong> February 2024
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                Fundamental concepts of machine learning, common ML algorithms,
+                and practical application using AWS services.
+              </p>
+              <a
+                href="https://www.credly.com/go/vewFb3w4"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-purple-400 hover:text-purple-300 underline text-sm flex items-center mt-auto pt-2"
+              >
+                <i data-lucide="external-link" class="w-4 h-4 mr-1"></i>View
+                Badge
+              </a>
+            </div>
+          </div>
+
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i data-lucide="cpu" class="w-10 h-10 accent-color mr-4"></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  NPTEL: Computer Architecture
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Issuing Body:</strong> IIT Madras
+                (via NPTEL)
+              </p>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Duration:</strong> 12 Weeks
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">Date:</strong> Jul-Oct 2023
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                In-depth understanding of computer organization, processor
+                design, memory hierarchy, and I/O systems.
+              </p>
+              <a
+                href="https://nptel.ac.in/noc/E_Certificate/NPTEL23CS67S9335684220310927"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-purple-400 hover:text-purple-300 underline text-sm flex items-center mt-auto pt-2"
+              >
+                <i data-lucide="link-2" class="w-4 h-4 mr-1"></i>Verify
+                Certificate
+              </a>
+            </div>
+          </div>
+
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i
+                  data-lucide="file-code-2"
+                  class="w-10 h-10 accent-color mr-4"
+                ></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  NPTEL: Programming in Java
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Issuing Body:</strong> IIT
+                Kharagpur (via NPTEL)
+              </p>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Duration:</strong> 12 Weeks
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">Date:</strong> Jul-Oct 2023
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                Comprehensive course on Java programming, covering core
+                concepts, OOP, data structures, and algorithms.
+              </p>
+              <a
+                href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL23CS74S10335691120310927"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-purple-400 hover:text-purple-300 underline text-sm flex items-center mt-auto pt-2"
+              >
+                <i data-lucide="link-2" class="w-4 h-4 mr-1"></i>Verify
+                Certificate
+              </a>
+            </div>
+          </div>
+
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i
+                  data-lucide="file-text"
+                  class="w-10 h-10 accent-color mr-4"
+                ></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  IEEE Research Paper Publication
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Title:</strong> "Cyber Threat
+                Monitoring and Incident Response with IntelliWatch SIEM"
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">Platform:</strong> IEEE Xplore
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                Published research on developing an intelligent SIEM system for
+                enhanced cyber threat detection and response.
+              </p>
+              <a
+                href="https://ieeexplore.ieee.org/document/10370155/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-purple-400 hover:text-purple-300 underline text-sm flex items-center mt-auto pt-2"
+              >
+                <i data-lucide="external-link" class="w-4 h-4 mr-1"></i>View
+                Paper
+              </a>
+            </div>
+          </div>
+
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i
+                  data-lucide="briefcase"
+                  class="w-10 h-10 accent-color mr-4"
+                ></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  Web Development Frontend Internship
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Company:</strong> Raise Digital
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">Duration:</strong> Aug 2023 - Sep
+                2023
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                Gained practical experience in HTML, CSS, and JavaScript,
+                collaborating on three web projects.
+              </p>
+              <a
+                href="https://1stop.ai/verify-certificate"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-purple-400 hover:text-purple-300 underline text-sm flex items-center mt-auto pt-2"
+              >
+                <i data-lucide="link-2" class="w-4 h-4 mr-1"></i>Verify (General
+                Portal)
+              </a>
+            </div>
+          </div>
+
+          <div class="certification-card p-6 rounded-lg shadow-lg">
+            <div class="card-content">
+              <div class="flex items-center mb-3">
+                <i
+                  data-lucide="user-check"
+                  class="w-10 h-10 accent-color mr-4"
+                ></i>
+                <h3 class="text-xl font-semibold text-slate-100">
+                  Cybersecurity Mentorship Program
+                </h3>
+              </div>
+              <p class="secondary-text text-sm mb-1">
+                <strong class="text-slate-300">Issuing Body:</strong> Btech
+                Walleh in association with Teachnook
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                <strong class="text-slate-300">Duration:</strong> Aug 2024 - Sep
+                2024
+              </p>
+              <p class="secondary-text text-sm mb-3">
+                Completed mentorship program focusing on cybersecurity
+                principles and practices. (ID: TNK24CS-08047)
+              </p>
+              <a
+                href="https://cert.diceid.com/cid/gkVXjml0xQ?verify=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-purple-400 hover:text-purple-300 underline text-sm flex items-center mt-auto pt-2"
+              >
+                <i data-lucide="link-2" class="w-4 h-4 mr-1"></i>Verify
+                Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-32">
+      <div class="container mx-auto px-6">
+        <h2 class="section-title text-center scroll-animate fade-up">
+          Get In Touch
+        </h2>
+        <p
+          class="text-center max-w-2xl mx-auto mb-12 secondary-text scroll-animate fade-up"
+          style="transition-delay: 0.1s"
+        >
+          I'm always excited to discuss new projects, collaborations, or
+          opportunities. Feel free to reach out! Email:
+          <a
+            href="mailto:spriyanshu553@gmail.com"
+            class="accent-color hover:text-purple-400 underline"
+            >spriyanshu553@gmail.com</a
+          >
+          | Phone:
+          <a
+            href="tel:+919651909981"
+            class="accent-color hover:text-purple-400 underline"
+            >+91 9651909981</a
+          >.
+        </p>
+        <div
+          class="max-w-xl mx-auto p-8 rounded-lg shadow-xl bg-slate-800 border border-slate-700 scroll-animate fade-up"
+          style="transition-delay: 0.2s"
+        >
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/mblyrolj"
+            method="POST"
+          >
+            <div class="mb-6">
+              <label
+                for="name"
+                class="block mb-2 text-sm font-medium text-slate-300"
+                >Full Name</label
+              ><input
+                type="text"
+                id="name"
+                name="name"
+                class="bg-slate-700 border border-slate-600 text-slate-200 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-3 placeholder-slate-400"
+                placeholder="Priyanshu Singh"
+                required
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                for="email"
+                class="block mb-2 text-sm font-medium text-slate-300"
+                >Email Address</label
+              ><input
+                type="email"
+                id="email"
+                name="email"
+                class="bg-slate-700 border border-slate-600 text-slate-200 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-3 placeholder-slate-400"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                for="subject"
+                class="block mb-2 text-sm font-medium text-slate-300"
+                >Subject</label
+              ><input
+                type="text"
+                id="subject"
+                name="subject"
+                class="bg-slate-700 border border-slate-600 text-slate-200 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-3 placeholder-slate-400"
+                placeholder="Project Idea / Collaboration"
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                for="message"
+                class="block mb-2 text-sm font-medium text-slate-300"
+                >Message</label
+              ><textarea
+                id="message"
+                name="message"
+                rows="5"
+                class="bg-slate-700 border border-slate-600 text-slate-200 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-3 placeholder-slate-400"
+                placeholder="Your message..."
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn-primary font-semibold py-3 px-8 rounded-lg shadow-lg w-full text-lg"
+            >
+              Send Message
+            </button>
+          </form>
+          <div id="form-status" class="mt-4 text-center text-sm"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 text-center bg-slate-900 border-t border-slate-800">
+      <div class="container mx-auto px-6 scroll-animate fade-up">
+        <div class="mb-4 flex justify-center space-x-6">
+          <a
+            href="https://github.com/TheUnderdog553"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-400 hover:accent-color transition duration-300"
+            aria-label="GitHub Profile"
+            ><i data-lucide="github" class="w-6 h-6"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/priyanshu-singh-a50a22265"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-400 hover:accent-color transition duration-300"
+            aria-label="LinkedIn Profile"
+            ><i data-lucide="linkedin" class="w-6 h-6"></i
+          ></a>
+          <a
+            href="mailto:spriyanshu553@gmail.com"
+            class="text-slate-400 hover:accent-color transition duration-300"
+            aria-label="Email Priyanshu"
+            ><i data-lucide="mail" class="w-6 h-6"></i
+          ></a>
+          <a
+            href="tel:+919651909981"
+            class="text-slate-400 hover:accent-color transition duration-300"
+            aria-label="Call Priyanshu"
+            ><i data-lucide="phone" class="w-6 h-6"></i
+          ></a>
+        </div>
+        <p class="secondary-text text-sm">
+          &copy; <span id="current-year"></span> Priyanshu Singh. All rights
+          reserved.
+        </p>
+        <p class="secondary-text text-xs mt-1">
+          Built with Tailwind CSS & Lucide Icons.
+        </p>
+      </div>
+    </footer>
+
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 p-3 rounded-full accent-bg text-slate-50 shadow-lg hover:bg-purple-700 transition-all duration-300 opacity-0 z-50"
+      aria-label="Back to Top"
+    >
+      <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof lucide !== "undefined") {
+          lucide.createIcons();
+        } else {
+          console.error("Lucide library not loaded or initialized.");
+        }
+
+        const header = document.getElementById("header");
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuIcon = mobileMenuButton
+          ? mobileMenuButton.querySelector("i")
+          : null;
+        const navLinks = document.querySelectorAll(".nav-link");
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+        const sections = document.querySelectorAll("section[id]");
+        const backToTopButton = document.getElementById("back-to-top");
+        const currentYearSpan = document.getElementById("current-year");
+        const contactForm = document.getElementById("contact-form");
+        const formStatus = document.getElementById("form-status");
+
+        if (currentYearSpan) {
+          currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Typing animation for Terminal "Current Activity"
+        const activeProcessTextElement = document.getElementById(
+          "terminal-active-process-text"
+        );
+        const activeProcessCursorElement = document.getElementById(
+          "terminal-active-process-cursor"
+        );
+        const processMessages = [
+          "Building secure web applications...",
+          "Let's secure your digital presence",
+          "Protecting against cyber threats",
+        ];
+        let messageIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function cycleActiveProcessMessages() {
+          if (!activeProcessTextElement || !activeProcessCursorElement) return;
+
+          const currentMessage = processMessages[messageIndex];
+          let displayText = "";
+
+          if (isDeleting) {
+            displayText = currentMessage.substring(0, charIndex - 1);
+            charIndex--;
+          } else {
+            displayText = currentMessage.substring(0, charIndex + 1);
+            charIndex++;
+          }
+          activeProcessTextElement.textContent = displayText;
+
+          let typeSpeed = isDeleting ? 70 : 130;
+
+          if (!isDeleting && displayText === currentMessage) {
+            typeSpeed = 2500; // Pause at end of full message
+            isDeleting = true;
+            activeProcessCursorElement.style.display = "inline-block";
+          } else if (isDeleting && displayText === "") {
+            isDeleting = false;
+            messageIndex = (messageIndex + 1) % processMessages.length;
+            typeSpeed = 500; // Pause before starting new message
+          }
+
+          if (
+            (!isDeleting && displayText !== currentMessage) ||
+            (isDeleting && displayText !== "")
+          ) {
+            activeProcessCursorElement.style.display = "inline-block";
+          }
+
+          setTimeout(cycleActiveProcessMessages, typeSpeed);
+        }
+
+        if (activeProcessTextElement) {
+          setTimeout(cycleActiveProcessMessages, 1200);
+        }
+
+        // Header scroll effect & active link highlighting
+        const headerHeight = header ? header.offsetHeight : 70;
+        function onScroll() {
+          if (header) {
+            if (window.scrollY > 50) {
+              header.classList.add("shadow-xl", "bg-slate-900/90");
+            } else {
+              header.classList.remove("shadow-xl", "bg-slate-900/90");
+            }
+          }
+          if (backToTopButton) {
+            if (window.scrollY > 300)
+              backToTopButton.classList.replace("opacity-0", "opacity-100");
+            else backToTopButton.classList.replace("opacity-100", "opacity-0");
+          }
+
+          let currentSectionId = "hero";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - headerHeight - 20) {
+              currentSectionId = section.id;
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === `#${currentSectionId}`
+            );
+          });
+          mobileNavLinks.forEach((link) => {
+            link.classList.toggle(
+              "bg-purple-600",
+              link.getAttribute("href") === `#${currentSectionId}`
+            );
+            link.classList.toggle(
+              "text-white",
+              link.getAttribute("href") === `#${currentSectionId}`
+            );
+          });
+        }
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+
+        if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+          mobileMenuButton.addEventListener("click", () => {
+            const isHidden = mobileMenu.classList.toggle("hidden");
+            if (isHidden) {
+              mobileMenuIcon.setAttribute("data-lucide", "menu");
+            } else {
+              mobileMenuIcon.setAttribute("data-lucide", "x");
+            }
+            lucide.createIcons();
+          });
+        }
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+              if (mobileMenuIcon)
+                mobileMenuIcon.setAttribute("data-lucide", "menu");
+              lucide.createIcons();
+            }
+          });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              const headerOffset = header ? header.offsetHeight : 70;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition =
+                elementPosition + window.pageYOffset - headerOffset;
+              window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            }
+          });
+        });
+
+        if (backToTopButton)
+          backToTopButton.addEventListener("click", () =>
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          );
+
+        const animatedElements = document.querySelectorAll(".scroll-animate");
+        if (typeof IntersectionObserver !== "undefined") {
+          const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.15,
+          };
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+              }
+            });
+          }, observerOptions);
+          animatedElements.forEach((el) => observer.observe(el));
+        } else {
+          animatedElements.forEach((el) => el.classList.add("is-visible"));
+        }
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const formData = new FormData(contactForm);
+            if (formStatus) {
+              formStatus.textContent = "Sending message...";
+              formStatus.className = "mt-4 text-center text-sm text-amber-400";
+            }
+            try {
+              const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: { Accept: "application/json" },
+              });
+              if (response.ok) {
+                if (formStatus) {
+                  formStatus.textContent =
+                    "Thank you! Your message has been sent.";
+                  formStatus.className =
+                    "mt-4 text-center text-sm text-green-400";
+                }
+                contactForm.reset();
+              } else {
+                response.json().then((data) => {
+                  if (formStatus) {
+                    formStatus.textContent =
+                      data.errors?.map((e) => e.message).join(", ") ||
+                      "Oops! There was a problem.";
+                    formStatus.className =
+                      "mt-4 text-center text-sm text-red-400";
+                  }
+                });
+              }
+            } catch (error) {
+              if (formStatus) {
+                formStatus.textContent =
+                  "Oops! Network error. Please try again.";
+                formStatus.className = "mt-4 text-center text-sm text-red-400";
+              }
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
