@@ -156,23 +156,8 @@
         border-color: #8b5cf6;
       }
 
-      /* Hero Section with Simple Parallax-like Effect */
-      #hero {
-        /* Replace with your desired background image */
-        background-image: linear-gradient(
-            rgba(15, 23, 42, 0.85),
-            rgba(15, 23, 42, 0.95)
-          ),
-          url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-        background-attachment: fixed; /* This creates the parallax effect */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      /* Terminal Styles  */
       .terminal {
-        background-color: #0f172a; /* Terminal background to blend or be slightly different */
+        background-color: #0f172a;
         border-radius: 0.75rem;
         padding: 24px;
         font-family: "Fira Code", "JetBrains Mono", monospace;
@@ -401,8 +386,9 @@
     <section
       id="hero"
       class="min-h-screen flex items-center justify-center pt-24 pb-16 relative overflow-hidden"
+      style="padding-top: 96px; padding-bottom: 64px"
     >
-      <div class="container mx-auto px-6 relative z-10">
+      <div class="container mx-auto px-6">
         <div
           class="grid md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
         >
@@ -417,7 +403,7 @@
               </span>
             </div>
             <h1
-              class="text-5xl md:text-6xl lg:text-[60px] font-bold mb-6 leading-tight text-slate-100"
+              class="text-5xl md:text-6xl lg:text-[60px] font-bold mb-6 leading-tight"
               style="color: #f9fafb; font-size: 60px; margin-bottom: 24px"
             >
               Securing the <span class="gradient-text">Digital</span> Frontier
@@ -438,11 +424,12 @@
                 View My Work
               </a>
               <a
-                href="#contact"
+                href="Cybersecurity.pdf"
+                download="PriyanshuSingh_Resume.pdf"
                 class="btn-secondary-custom font-medium px-8 py-4 rounded-lg transition duration-300"
                 style="font-size: 16px; padding: 16px 32px"
               >
-                Get In Touch
+                Download CV
               </a>
             </div>
             <div
@@ -502,7 +489,7 @@
                   <span class="command">whoami</span>
                 </div>
                 <div class="mb-2 output">
-                  Cybersecurity Enthusiast &amp; Web Developer
+                  Cybersecurity Specialist &amp; Web Developer
                 </div>
                 <div class="mb-2">
                   <span class="prompt">&gt;</span>
